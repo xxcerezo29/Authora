@@ -6,6 +6,7 @@ on:
 
 permissions:
   contents: write
+  packages: write
 
 jobs:
   package-and-attach:
@@ -38,6 +39,20 @@ jobs:
           dotnet pack src/Authora.EntityFrameworkCore/Authora.EntityFrameworkCore.csproj --configuration Release --no-build --no-restore --output artifacts/packages /p:PackageVersion="$PACKAGE_VERSION"
           dotnet pack src/Authora.Jwt/Authora.Jwt.csproj --configuration Release --no-build --no-restore --output artifacts/packages /p:PackageVersion="$PACKAGE_VERSION"
           dotnet pack src/Authora/Authora.csproj --configuration Release --no-build --no-restore --output artifacts/packages /p:PackageVersion="$PACKAGE_VERSION"
+
+      - name: Publish module packages to GitHub Packages
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          dotnet nuget push "artifacts/packages/Authora.Core.$PACKAGE_VERSION.nupkg" --api-key "$GITHUB_TOKEN" --source https://nuget.pkg.github.com/xxcerezo29/index.json --skip-duplicate
+          dotnet nuget push "artifacts/packages/Authora.AspNetCore.$PACKAGE_VERSION.nupkg" --api-key "$GITHUB_TOKEN" --source https://nuget.pkg.github.com/xxcerezo29/index.json --skip-duplicate
+          dotnet nuget push "artifacts/packages/Authora.EntityFrameworkCore.$PACKAGE_VERSION.nupkg" --api-key "$GITHUB_TOKEN" --source https://nuget.pkg.github.com/xxcerezo29/index.json --skip-duplicate
+          dotnet nuget push "artifacts/packages/Authora.Jwt.$PACKAGE_VERSION.nupkg" --api-key "$GITHUB_TOKEN" --source https://nuget.pkg.github.com/xxcerezo29/index.json --skip-duplicate
+
+      - name: Publish umbrella package to GitHub Packages
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: dotnet nuget push "artifacts/packages/Authora.$PACKAGE_VERSION.nupkg" --api-key "$GITHUB_TOKEN" --source https://nuget.pkg.github.com/xxcerezo29/index.json --skip-duplicate
 
       - name: Attach packages to GitHub Release
         env:

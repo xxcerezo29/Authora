@@ -3,6 +3,8 @@
     <PackageId>$(MSBuildProjectName)</PackageId>
     <Version Condition="'$(Version)' == ''">0.1.0</Version>
     <Authors>Authora contributors</Authors>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/xxcerezo29/Authora</RepositoryUrl>
     <Description Condition="'$(MSBuildProjectName)' == 'Authora.Core'">Core contracts, entities, and personal access token services for Authora.</Description>
     <Description Condition="'$(MSBuildProjectName)' == 'Authora.AspNetCore'">ASP.NET Core authentication and browser session integration for Authora.</Description>
     <Description Condition="'$(MSBuildProjectName)' == 'Authora.EntityFrameworkCore'">Entity Framework Core persistence for Authora authentication services.</Description>

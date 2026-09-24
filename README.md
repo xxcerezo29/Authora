@@ -21,9 +21,23 @@ The sample uses SQLite and development-only login endpoints. Do not deploy those
 
 ## Getting started
 
-Add the `Authora` NuGet package to install the complete suite, or reference individual packages when you only need specific features. For a typical persistent ASP.NET Core API, reference `Authora.AspNetCore` and `Authora.EntityFrameworkCore`; add `Authora.Jwt` only if the application uses JWT sessions. These packages are built for .NET 10.
+Add the `Authora` package from GitHub Packages to install the complete suite, or reference individual packages when you only need specific features. For a typical persistent ASP.NET Core API, reference `Authora.AspNetCore` and `Authora.EntityFrameworkCore`; add `Authora.Jwt` only if the application uses JWT sessions. These packages are built for .NET 10.
 
-When a GitHub Release is published, the release workflow builds and tests the source, creates versioned `.nupkg` files for the umbrella package and all four library packages, and attaches them to that release. The tag version is used as the NuGet package version, with an optional leading `v` removed. Packages are attached to GitHub Releases and are not published to nuget.org.
+When a GitHub Release is published, the release workflow builds and tests the source, creates versioned `.nupkg` files for the umbrella package and all four library packages, publishes them to GitHub Packages, and attaches the files to that release. The tag version is used as the package version, with an optional leading `v` removed.
+
+To install from GitHub Packages, first create a GitHub personal access token (classic) with `read:packages` scope. Add the GitHub feed to your user-level NuGet configuration (do not commit the token):
+
+```powershell
+dotnet nuget add source --username YOUR_GITHUB_USERNAME --password YOUR_CLASSIC_PAT --name github https://nuget.pkg.github.com/xxcerezo29/index.json
+```
+
+Then install the package from your project directory. NuGet will use the registered GitHub feed for Authora and nuget.org for third-party dependencies:
+
+```powershell
+dotnet add package Authora --version 1.2.3
+```
+
+GitHub Packages requires authentication for NuGet packages, including public packages. Newly published packages are private by default; make each package public in its GitHub package settings if you want to share it broadly.
 
 Register the store mappings in your EF Core context:
 
