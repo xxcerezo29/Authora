@@ -28,3 +28,7 @@ The `CI / build-and-test` workflow checks restore, Release build, and tests on e
 4. Keep branch deletion and force pushes restricted.
 
 The PR template reminds contributors to verify CI, cover behavior changes with tests, and update relevant documentation. Repository rulesets are configured in GitHub settings and cannot be enforced by a workflow file alone.
+
+## Publishing releases
+
+Publishing a GitHub Release triggers `.github/workflows/release.yml`. The workflow uses `GITHUB_TOKEN` with `packages: write` to publish all five packages to the GitHub NuGet registry and attaches them to the release. Create releases with semantic version tags such as `v1.2.3`; the workflow publishes package version `1.2.3`. Consumers need a classic GitHub personal access token with `read:packages` and must configure `https://nuget.pkg.github.com/xxcerezo29/index.json` as a NuGet source. Packages are private by default; set public visibility in the GitHub package settings when appropriate.
