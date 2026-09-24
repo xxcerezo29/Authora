@@ -23,7 +23,7 @@ The sample uses SQLite and development-only login endpoints. Do not deploy those
 
 Add the `Authora` NuGet package to install the complete suite, or reference individual packages when you only need specific features. For a typical persistent ASP.NET Core API, reference `Authora.AspNetCore` and `Authora.EntityFrameworkCore`; add `Authora.Jwt` only if the application uses JWT sessions. These packages are built for .NET 10.
 
-CI creates versioned `.nupkg` files for the umbrella package and all four library packages and attaches them to each successful workflow run as the `authora-nuget-packages` artifact. Download that artifact from the GitHub Actions run to try the packages. CI packages are prerelease versions and are not published to nuget.org.
+When a GitHub Release is published, the release workflow builds and tests the source, creates versioned `.nupkg` files for the umbrella package and all four library packages, and attaches them to that release. The tag version is used as the NuGet package version, with an optional leading `v` removed. Packages are attached to GitHub Releases and are not published to nuget.org.
 
 Register the store mappings in your EF Core context:
 
