@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Authora.Core\Authora.Core.csproj" />
+    <ProjectReference Include="..\..\src\Authora.AspNetCore\Authora.AspNetCore.csproj" />
+    <ProjectReference Include="..\..\src\Authora.EntityFrameworkCore\Authora.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\..\src\Authora.Jwt\Authora.Jwt.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.12">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="10.0.12" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>f4d2840a-00f7-446d-a62d-3977ca02c761</UserSecretsId>
+  </PropertyGroup>
+
+</Project>

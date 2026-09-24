@@ -1,0 +1,15 @@
+<Solution>
+  <Folder Name="/samples/">
+    <Project Path="samples/Authora.SampleApi/Authora.SampleApi.csproj" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src/Authora/Authora.csproj" />
+    <Project Path="src/Authora.AspNetCore/Authora.AspNetCore.csproj" />
+    <Project Path="src/Authora.Core/Authora.Core.csproj" />
+    <Project Path="src/Authora.EntityFrameworkCore/Authora.EntityFrameworkCore.csproj" />
+    <Project Path="src/Authora.Jwt/Authora.Jwt.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Authora.Tests/Authora.Tests.csproj" />
+  </Folder>
+</Solution>

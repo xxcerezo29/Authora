@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsPackable>true</IsPackable>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <SuppressDependenciesWhenPacking>false</SuppressDependenciesWhenPacking>
+    <NoWarn>$(NoWarn);NU5128</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Authora.Core\Authora.Core.csproj" />
+    <ProjectReference Include="..\Authora.AspNetCore\Authora.AspNetCore.csproj" />
+    <ProjectReference Include="..\Authora.EntityFrameworkCore\Authora.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\Authora.Jwt\Authora.Jwt.csproj" />
+  </ItemGroup>
+</Project>

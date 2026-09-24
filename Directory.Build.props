@@ -1,0 +1,19 @@
+<Project>
+  <PropertyGroup Condition="'$(MSBuildProjectName)' == 'Authora' or '$(MSBuildProjectName)' == 'Authora.Core' or '$(MSBuildProjectName)' == 'Authora.AspNetCore' or '$(MSBuildProjectName)' == 'Authora.EntityFrameworkCore' or '$(MSBuildProjectName)' == 'Authora.Jwt'">
+    <PackageId>$(MSBuildProjectName)</PackageId>
+    <Version Condition="'$(Version)' == ''">0.1.0</Version>
+    <Authors>Authora contributors</Authors>
+    <Description Condition="'$(MSBuildProjectName)' == 'Authora.Core'">Core contracts, entities, and personal access token services for Authora.</Description>
+    <Description Condition="'$(MSBuildProjectName)' == 'Authora.AspNetCore'">ASP.NET Core authentication and browser session integration for Authora.</Description>
+    <Description Condition="'$(MSBuildProjectName)' == 'Authora.EntityFrameworkCore'">Entity Framework Core persistence for Authora authentication services.</Description>
+    <Description Condition="'$(MSBuildProjectName)' == 'Authora.Jwt'">JWT access tokens and rotating refresh token sessions for Authora.</Description>
+    <Description Condition="'$(MSBuildProjectName)' == 'Authora'">The complete Authora authentication package suite for ASP.NET Core, personal access tokens, EF Core persistence, and JWT sessions.</Description>
+    <PackageTags>authentication;aspnetcore;security;sanctum</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(MSBuildProjectName)' == 'Authora' or '$(MSBuildProjectName)' == 'Authora.Core' or '$(MSBuildProjectName)' == 'Authora.AspNetCore' or '$(MSBuildProjectName)' == 'Authora.EntityFrameworkCore' or '$(MSBuildProjectName)' == 'Authora.Jwt'">
+    <None Include="$(MSBuildThisFileDirectory)README.md" Pack="true" PackagePath="/" />
+  </ItemGroup>
+</Project>

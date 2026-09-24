@@ -1,0 +1,31 @@
+# .NET build and test artifacts
+**/bin/
+**/obj/
+/artifacts/
+TestResults/
+*.trx
+*.coverage
+
+# IDE-local state
+.superpowers/
+.vs/
+.idea/
+*.user
+*.suo
+.vscode/
+
+# Local data and database files
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+
+# Local secrets and environment overrides
+.env
+.env.*
+!.env.example
+secrets.json
+appsettings.Local.json
+appsettings.*.Local.json
+docs/superpowers
